@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+  pg_sim:
+    build: .
+    image: accalina/simple_pg_sim:latest
+    container_name: simple_pg_sim
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./backend:/pg_sim"
+    command: >
+      sh -c "cd /pg_sim/ && uvicorn main:app --reload --host 0.0.0.0"
+
+
